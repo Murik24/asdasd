@@ -1,9 +1,8 @@
-body {
-    background-image: url("C:/Users/Murad/Downloads/International-Union-of-Cinemas-Calls-for-Open-Standards-in-the-Cinema-Industry.jpg");
+body{
+    background-image: url("https://mobile.parkcinema.az/addons/shared_addons/themes/mobile/img/lazer.jpg");
     background-position: center;
     background-size: cover;
     height:100vh;
-    
 }
 
 
@@ -22,4 +21,8 @@ body {
     margin-top:10px;
     padding: 2px;
     background: #666;
+}
+
+.details{
+    display: flex;
 }
