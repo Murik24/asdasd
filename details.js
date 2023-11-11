@@ -6,16 +6,19 @@ axios.get(`https://api.tvmaze.com/shows/${id}`)
     let description = movie.summary
     description = description.slice(description.indexOf("</b>")+4, description.length-4)
     console.log(description);
-    detail_page.innerHTML = `<div class="card col-3" style="width: 18rem;">
-    <img src="${movie.image.medium}" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">${movie.name}</h5>
-        <p class="card-text">Runtime: ${movie.runtime}</p>
-        <p class="average">Rating:${movie.rating.average}</p>
-        <a href="./main.html" class="btn btn-primary">Back</a>
+    detail_page.innerHTML = `
+    <div class="card col-3" style="width: 18rem;">
+        <img src="${movie.image.medium}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">${movie.name}</h5>
+            <p class="card-text">Runtime: ${movie.runtime}</p>
+            <p class="average">Rating:${movie.rating.average}</p>
+            <a href="./main.html" class="btn btn-primary">Back</a>
+        </div>
     </div>
-    </div>
-    <p class="descr"><b>${movie.name}</b>${description}</p>`
+    <div class="descr">
+        <p><b>${movie.name}</b>${description}</p>
+    </div>`
 })
 
 

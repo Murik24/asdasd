@@ -1,5 +1,5 @@
 body{
-    background-image: url("https://mobile.parkcinema.az/addons/shared_addons/themes/mobile/img/lazer.jpg");
+    background-image: url(./lazer.jpg);
     background-position: center;
     background-size: cover;
     height:100vh;
@@ -24,7 +24,9 @@ body{
 }
 
 .details{
+    margin-top: 20px;
     display: flex;
+    justify-content: flex-start;
     border-radius: 10px;
     border: 1px;
     backdrop-filter:3px;
@@ -32,7 +34,19 @@ body{
 }
 
 .descr{
-padding: 50px;
-border: 1px solid white;
-max-height: fit-content;
+    margin: 15px 0 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border: 1px solid white;
+    width: 50vw;
+    height: fit-content;
+    background-color: black;
+    border-radius: 8px;
+}
+
+.card{
+    background-color: rgb(36, 31, 31);
+    color: white;
 }
