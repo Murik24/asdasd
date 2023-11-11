@@ -2,6 +2,7 @@ body{
     background-image: url(./lazer.jpg);
     background-position: center;
     background-size: cover;
+    backdrop-filter: blur(3px);
     height:100vh;
 }
 

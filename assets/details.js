@@ -12,7 +12,8 @@ axios.get(`https://api.tvmaze.com/shows/${id}`)
         <div class="card-body">
             <h5 class="card-title">${movie.name}</h5>
             <p class="card-text">Runtime: ${movie.runtime}</p>
-            <p class="average">Rating:${movie.rating.average}</p>
+            <p class="average">Rating: ${movie.rating.average}</p>
+            <p class="Genres">Genres: ${movie.genres}</p>
             <a href="./main.html" class="btn btn-primary">Back</a>
         </div>
     </div>
@@ -20,6 +21,5 @@ axios.get(`https://api.tvmaze.com/shows/${id}`)
         <p><b>${movie.name}</b>${description}</p>
     </div>`
 })
-
 
 // style="grid-area:1/1/4/2; border:2px solid white;margin-top: 5px; padding:5px;"
