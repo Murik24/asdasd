@@ -25,4 +25,14 @@ body{
 
 .details{
     display: flex;
+    border-radius: 10px;
+    border: 1px;
+    backdrop-filter:3px;
+    color:white;
+}
+
+.descr{
+padding: 50px;
+border: 1px solid white;
+max-height: fit-content;
 }

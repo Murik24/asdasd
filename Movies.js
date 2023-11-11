@@ -1,5 +1,5 @@
-var row = document.getElementsByClassName("row")[0]
-var row1 = document.querySelector(".row1")
+var row = document.querySelector(".row")
+var search_input = document.querySelector(".input_search_my")
 
 function fillHtml(data){
 
@@ -8,7 +8,8 @@ function fillHtml(data){
     <img src="${element.image.medium}" class="card-img-top" alt="...">
     <div class="card-body">
         <h5 class="card-title">${element.name}</h5>
-        <p class="card-text">${element.runtime}</p>
+        <p class="card-text">Runtime: ${element.runtime}</p>
+        <p class="rating">Rating: ${element.rating.average}</p>
         <a id="${element.id}" href="./details.html?id=${element.id}" class="btn btn-primary">Check</a>
     </div>
     </div>`
@@ -20,17 +21,29 @@ fetch("https://api.tvmaze.com/shows")
 .then(data => fillHtml(data))
 
 
-
-
-// axios.get("https://api.tvmaze.com/shows")
-// .then((result) => {
-//     console.log(result.data);
-// })
-
-
-// window.onload = function() {
-//     var backgroundImage = new Image();
-//     backgroundImage.src = `C:/Users/Murad/Downloads/International-Union-of-Cinemas-Calls-for-Open-Standards-in-the-Cinema-Industry.jpg`;
-//     document.body.style.backgroundImage = `url(` + backgroundImage.src + `)`;
-//     document.body.style.backgroundAttachment = `fixed`;
-// }
+search_input.addEventListener("keyup", function(){
+    row.innerHTML = ``
+    const url=`https://api.tvmaze.com/search/shows?q=${search_input.value.toLowerCase().trim()}`
+    console.log(url);
+    axios.get(url)
+    .then((result)=>{
+        let movies = result.data
+        console.log(movies);
+        movies.forEach((movie)=>{
+            if(movie.show.image){
+                row.innerHTML += `<div class="card col-3" style="width: 18rem;">
+                <img src="${movie.show.image.medium}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${movie.show.name}</h5>
+                    <p class="card-text">Runtime:${movie.show.runtime}</p>
+                    <p class="average">Rating:${movie.show.rating.average}</p>
+                    <a id="${movie.show.id}" href="./details.html?id=${movie.show.id}" class="btn btn-primary">Check</a>
+                </div>
+                </div>
+                `
+            }
+    
+            }
+        )
+    })
+})
